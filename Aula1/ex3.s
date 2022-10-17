@@ -1,6 +1,6 @@
 .data
- .text
- .globl main
+.text
+.globl main
 main: ori $v0,$0,5 
  syscall 
  or $t0,$0,$v0 # $t0 = $v0 = valor lido do teclado
