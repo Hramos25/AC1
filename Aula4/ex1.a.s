@@ -6,12 +6,12 @@
 
     .data
     .eqv  SIZE,20
-    .eqv  read_string, SIZE
-    .eqv  print_int10, num
-str: .space SIZE
+    .eqv  read_string, 8
+    .eqv  print_int10, 1
+str: .space 21                      # static char str[21]
     .text
     .globl main
-main: la    $a0,str     # $a0= &str[0] (endereço da posição 0 do array, i.e., endereço inicial do array)
+main: la    $a0, str     # $a0= &str[0] (endereço da posição 0 do array, i.e., endereço inicial do array)
 
       li    $a1,SIZE     # $a1=SIZE
       li    $v0, read_string
