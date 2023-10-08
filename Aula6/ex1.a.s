@@ -21,15 +21,15 @@ for:    bge $t0, SIZE, endfor
         sll   $t2, $t0, 2
         addu  $t2, $t2 $t1     # &array[i]
         lw    $a0, 0($t2)      # $a0 = array[i]
-
+        
         li    $v0, print_string
         syscall
 
         li  $a1, '\n'
         li  $v0, print_char
         syscall
-        
-	j for
-endfor: jr  $ra
 
-# Errado !!!
+        addiu $t0, $t0, 1
+	    j for
+
+endfor: jr  $ra

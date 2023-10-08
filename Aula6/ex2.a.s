@@ -13,7 +13,7 @@ str3:   .asciz "ponteiros"
         .globl main
 
 # Mapa de registos
-# i --> $t0
+# SIZE*4 --> $t0
 # p --> $t1
 # pultimo --> $t2
 
@@ -23,15 +23,16 @@ main:   la  $t1, array
         addu $t2, $t1, $t0
 
 for:    bge $t1, $t2, endfor
-        la  $a0, 0($t1)
-        li  $v0, print_string
+        
+        lw      $a0, 0($t1)
+        li      $v0, print_string
         syscall
 
-        li  $a0, '\n'
-        li  $v0, print_char
+        li      $v0, print_char
+        li      $a0, '\n'
         syscall
+
+        addiu   $t1, $t1, 4
+        j       for
         
 endfor: jr $ra
-
-# ERROR!!
-        
