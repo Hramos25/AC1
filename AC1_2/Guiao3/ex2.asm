@@ -5,8 +5,13 @@
 
             .data
     
+<<<<<<< HEAD
 str1:       .asciiz " Introduza um número: "
 str2:       .asciiz "\nO valor em binário é: "
+=======
+str1:       .asciiz " Introduza um nÃºmero: "
+str2:       .asciiz "\nO valor em binÃ¡rio Ã©: "
+>>>>>>> 997eda7255ab612c430adcf9ade57572c12a22fa
 
             .eqv read_int, 5
             .eqv print_char, 11
@@ -41,8 +46,12 @@ if:     beq $t1, 0, else
         li $a0, '1'
         li $v0, print_char
         syscall
+<<<<<<< HEAD
 	
 	j endif
+=======
+
+>>>>>>> 997eda7255ab612c430adcf9ade57572c12a22fa
 
 else:   li $a0, '0'
         li $v0, print_char
